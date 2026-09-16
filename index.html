@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eSIM O'zbekiston - Demo</title>
+    <!-- Google Fonts for Modern Feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- QR Code Generator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <img src="logo.png" alt="eSIM Logo" class="logo" id="logo-img">
+            </div>
+            <h1>eSIM O'zbekiston - Demo</h1>
+            <p class="subtitle">Kelajak aloqasini hoziroq his eting</p>
+        </header>
+
+        <!-- Main Form Area -->
+        <main id="form-section" class="card">
+
+            <!-- Step 1: Operator -->
+            <div class="form-group slide-up step-1">
+                <label>1-qadam: Operatorni tanlang</label>
+                <div class="operator-grid" id="operator-grid">
+                    <div class="operator-item active" data-operator="Beeline">
+                        <div class="op-icon beeline"></div>
+                        <span>Beeline</span>
+                    </div>
+                    <div class="operator-item" data-operator="Ucell">
+                        <div class="op-icon ucell"></div>
+                        <span>Ucell</span>
+                    </div>
+                    <div class="operator-item" data-operator="Mobiuz">
+                        <div class="op-icon mobiuz"></div>
+                        <span>Mobiuz</span>
+                    </div>
+                    <div class="operator-item" data-operator="Uztelecom">
+                        <div class="op-icon uztelecom"></div>
+                        <span>Uztelecom</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Number -->
+            <div class="form-group slide-up step-2" style="animation-delay: 0.1s;">
+                <label>2-qadam: Raqamni tanlang</label>
+                <div class="phone-input-group">
+                    <span class="country-code">+998</span>
+                    <select id="prefix" class="modern-input">
+                        <option value="90">90</option>
+                        <option value="91">91</option>
+                        <option value="93">93</option>
+                        <option value="94">94</option>
+                        <option value="95">95</option>
+                        <option value="97">97</option>
+                        <option value="99">99</option>
+                        <option value="88">88</option>
+                        <option value="77">77</option>
+                        <option value="50">50</option>
+                    </select>
+                    <input type="text" id="phone-number" class="modern-input" placeholder="000 00 00" maxlength="9"
+                        required>
+                </div>
+            </div>
+
+            <!-- Step 3: Personal Info -->
+            <div class="form-group slide-up step-3" style="animation-delay: 0.2s;">
+                <label>3-qadam: Shaxsiy ma'lumotlar</label>
+                <input type="text" id="full-name" class="modern-input mb-15" placeholder="Ism va Familiya" required>
+                <input type="text" id="passport" class="modern-input mb-15"
+                    placeholder="Pasport yoki ID (Masalan: AA1234567)" required>
+                <input type="email" id="email" class="modern-input" placeholder="Elektron pochta manzili" required>
+            </div>
+
+            <!-- Step 4: Button -->
+            <div class="form-group slide-up step-4" style="animation-delay: 0.3s;">
+                <button type="button" id="submit-btn" class="primary-btn">
+                    <span>eSIM QR-kodini olish</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+        </main>
+
+        <!-- Success Area -->
+        <main id="success-section" class="card hidden">
+            <div class="success-header">
+                <div class="checkmark-circle">
+                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="checkmark-circle-bg" cx="26" cy="26" r="25" fill="none" />
+                        <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                    </svg>
+                </div>
+                <h2>Muvaffaqiyatli bajarildi!</h2>
+                <p>Sizning eSIM profilingiz tayyor. Quyidagi QR-kodni skanerlang.</p>
+            </div>
+
+            <div class="qr-container">
+                <div id="qrcode"></div>
+                <div class="qr-overlay"></div>
+            </div>
+
+            <div class="success-details">
+                <p class="summary-text" id="summary-operator">Operator: Beeline</p>
+                <p class="summary-text" id="summary-phone">+998 90 000 00 00</p>
+            </div>
+
+            <button type="button" id="back-btn" class="secondary-btn mt-20">Boshqa raqam olish</button>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Diqqat! Bu sayt faqat demo uchun bo'lib, haqiqiy aloqa xizmatlarini ko'rsatmaydi.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
